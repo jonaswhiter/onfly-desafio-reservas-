@@ -1,0 +1,30 @@
+name: Testes (pytest)
+
+# Roda os testes automaticamente no GitHub a cada envio de arquivos (push) ou pull request.
+# Também pode ser executado manualmente pela aba "Actions" (botão "Run workflow").
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    name: pytest (Python 3.11)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar o Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar as dependências
+        run: pip install -r requirements-dev.txt
+
+      - name: Rodar o pytest
+        run: pytest -q
