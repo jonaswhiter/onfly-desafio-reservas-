@@ -96,5 +96,5 @@ Esperado: **43 testes** (5 fornecidos + 38 adicionais), todos passando.
 Saída real da execução local (colar antes do envio):
 
 ```text
-(cole aqui a saída de `pytest -q`)
+43 passed in 1.41s
 ```
